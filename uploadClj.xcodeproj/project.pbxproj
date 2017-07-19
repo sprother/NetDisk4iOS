@@ -14,6 +14,8 @@
 		47D7C5381F1CA20600E837D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D7C5361F1CA20600E837D8 /* LaunchScreen.storyboard */; };
 		47D7C5431F1CA20700E837D8 /* uploadCljTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C5421F1CA20700E837D8 /* uploadCljTests.swift */; };
 		47D7C54E1F1CA20700E837D8 /* uploadCljUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C54D1F1CA20700E837D8 /* uploadCljUITests.swift */; };
+		47D7C55E1F1CA29200E837D8 /* Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C55D1F1CA29200E837D8 /* Upload.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		47F886BF1F1F043B00302FB8 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F886BE1F1F043B00302FB8 /* Photos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,10 @@
 		47D7C5491F1CA20700E837D8 /* uploadCljUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uploadCljUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D7C54D1F1CA20700E837D8 /* uploadCljUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadCljUITests.swift; sourceTree = "<group>"; };
 		47D7C54F1F1CA20700E837D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47D7C55B1F1CA27E00E837D8 /* Upload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Upload.h; sourceTree = "<group>"; };
+		47D7C55C1F1CA29100E837D8 /* uploadClj-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uploadClj-Bridging-Header.h"; sourceTree = "<group>"; };
+		47D7C55D1F1CA29200E837D8 /* Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Upload.m; sourceTree = "<group>"; };
+		47F886BE1F1F043B00302FB8 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47F886BF1F1F043B00302FB8 /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +88,7 @@
 				47D7C5411F1CA20700E837D8 /* uploadCljTests */,
 				47D7C54C1F1CA20700E837D8 /* uploadCljUITests */,
 				47D7C52B1F1CA20600E837D8 /* Products */,
+				47F886BD1F1F043A00302FB8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +111,9 @@
 				47D7C5341F1CA20600E837D8 /* Assets.xcassets */,
 				47D7C5361F1CA20600E837D8 /* LaunchScreen.storyboard */,
 				47D7C5391F1CA20600E837D8 /* Info.plist */,
+				47D7C55B1F1CA27E00E837D8 /* Upload.h */,
+				47D7C55D1F1CA29200E837D8 /* Upload.m */,
+				47D7C55C1F1CA29100E837D8 /* uploadClj-Bridging-Header.h */,
 			);
 			path = uploadClj;
 			sourceTree = "<group>";
@@ -123,6 +134,14 @@
 				47D7C54F1F1CA20700E837D8 /* Info.plist */,
 			);
 			path = uploadCljUITests;
+			sourceTree = "<group>";
+		};
+		47F886BD1F1F043A00302FB8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47F886BE1F1F043B00302FB8 /* Photos.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +212,7 @@
 				TargetAttributes = {
 					47D7C5291F1CA20600E837D8 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					47D7C53D1F1CA20700E837D8 = {
@@ -261,6 +281,7 @@
 			files = (
 				47D7C5301F1CA20600E837D8 /* ViewController.swift in Sources */,
 				47D7C52E1F1CA20600E837D8 /* AppDelegate.swift in Sources */,
+				47D7C55E1F1CA29200E837D8 /* Upload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,10 +433,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = uploadClj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cailinjun.uploadClj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uploadClj/uploadClj-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -424,10 +448,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = uploadClj/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cailinjun.uploadClj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uploadClj/uploadClj-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -505,6 +531,7 @@
 				47D7C5541F1CA20700E837D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47D7C5551F1CA20700E837D8 /* Build configuration list for PBXNativeTarget "uploadCljTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +540,7 @@
 				47D7C5571F1CA20700E837D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47D7C5581F1CA20700E837D8 /* Build configuration list for PBXNativeTarget "uploadCljUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +549,7 @@
 				47D7C55A1F1CA20700E837D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
