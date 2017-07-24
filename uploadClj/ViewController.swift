@@ -8,43 +8,48 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController,URLSessionDelegate {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("start")
-
-        checkFileUpdate()
-        uploadTest()
         
+        fileUpdateTest(file1: "/Users/clj/Desktop/50m2.mp4", file2: "/Users/clj/Desktop/50m.mp4")
+        //swiftHTTPUpload()
         
         print("finish")
         
     }
+    let myUpload=uploadClj()
+    func swiftHTTPUpload(){
+         myUpload.test(filePath:"/Users/clj/Desktop/cljfile.txt",urlStr:"http://27.18.150.194:18080/ios/first?account=abc&password=123")
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func checkFileUpdate(){
+    func fileUpdateTest(file1:String,file2:String){
+        //文件对比模块
         let fm=FileManager.default
-        
-        let pathStr = "/Users/clj/Desktop"
-        let attributes=try?fm.attributesOfItem(atPath: pathStr)
-        print("attributes:\(attributes?[FileAttributeKey.modificationDate])")
+        if fm.contentsEqual(atPath: file1, andPath: file2){
+            print("==Equal==")
+        }else{
+            print("==Not Equal==")
+        }
+        //let pathStr = "/Users/clj/Desktop/50m.mp4"
+        printDate(file: file1)
+        printDate(file: file2)
+    }
+    func printDate(file:String){
+        let fm=FileManager.default
+        let attributes=try?fm.attributesOfItem(atPath: file)
+        print("==attributes:\(attributes?[FileAttributeKey.modificationDate])==")
         let str:Date=attributes?[FileAttributeKey.modificationDate] as! Date
-        print(str)
+        print("==Data: \(str) ==")
     }
-    
-    func uploadTest(){
-        print("uploadTest")
-        let up=Upload()
-        up.testPrint()
-        print("===\(up)===")
-        up.upload(withURL: "ftp://localhost/homeTest", filePath: "/Users/clj/Desktop/50m.txt", account: "clj", password: "28732149")
-        
-        up.testPrint()
-    }
+
 }
 

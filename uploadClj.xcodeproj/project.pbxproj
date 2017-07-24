@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		475A4CCF1F22E543007DBA06 /* UploadClj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475A4CCE1F22E543007DBA06 /* UploadClj.swift */; };
 		47D7C52E1F1CA20600E837D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C52D1F1CA20600E837D8 /* AppDelegate.swift */; };
 		47D7C5301F1CA20600E837D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C52F1F1CA20600E837D8 /* ViewController.swift */; };
 		47D7C5331F1CA20600E837D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D7C5311F1CA20600E837D8 /* Main.storyboard */; };
@@ -14,7 +15,6 @@
 		47D7C5381F1CA20600E837D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D7C5361F1CA20600E837D8 /* LaunchScreen.storyboard */; };
 		47D7C5431F1CA20700E837D8 /* uploadCljTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C5421F1CA20700E837D8 /* uploadCljTests.swift */; };
 		47D7C54E1F1CA20700E837D8 /* uploadCljUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C54D1F1CA20700E837D8 /* uploadCljUITests.swift */; };
-		47D7C55E1F1CA29200E837D8 /* Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C55D1F1CA29200E837D8 /* Upload.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		47F886BF1F1F043B00302FB8 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F886BE1F1F043B00302FB8 /* Photos.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		475A4CCE1F22E543007DBA06 /* UploadClj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadClj.swift; sourceTree = "<group>"; };
 		47D7C52A1F1CA20600E837D8 /* uploadClj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uploadClj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D7C52D1F1CA20600E837D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47D7C52F1F1CA20600E837D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,9 +50,6 @@
 		47D7C5491F1CA20700E837D8 /* uploadCljUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uploadCljUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D7C54D1F1CA20700E837D8 /* uploadCljUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadCljUITests.swift; sourceTree = "<group>"; };
 		47D7C54F1F1CA20700E837D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47D7C55B1F1CA27E00E837D8 /* Upload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Upload.h; sourceTree = "<group>"; };
-		47D7C55C1F1CA29100E837D8 /* uploadClj-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "uploadClj-Bridging-Header.h"; sourceTree = "<group>"; };
-		47D7C55D1F1CA29200E837D8 /* Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Upload.m; sourceTree = "<group>"; };
 		47F886BE1F1F043B00302FB8 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -111,9 +109,7 @@
 				47D7C5341F1CA20600E837D8 /* Assets.xcassets */,
 				47D7C5361F1CA20600E837D8 /* LaunchScreen.storyboard */,
 				47D7C5391F1CA20600E837D8 /* Info.plist */,
-				47D7C55B1F1CA27E00E837D8 /* Upload.h */,
-				47D7C55D1F1CA29200E837D8 /* Upload.m */,
-				47D7C55C1F1CA29100E837D8 /* uploadClj-Bridging-Header.h */,
+				475A4CCE1F22E543007DBA06 /* UploadClj.swift */,
 			);
 			path = uploadClj;
 			sourceTree = "<group>";
@@ -279,9 +275,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475A4CCF1F22E543007DBA06 /* UploadClj.swift in Sources */,
 				47D7C5301F1CA20600E837D8 /* ViewController.swift in Sources */,
 				47D7C52E1F1CA20600E837D8 /* AppDelegate.swift in Sources */,
-				47D7C55E1F1CA29200E837D8 /* Upload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
