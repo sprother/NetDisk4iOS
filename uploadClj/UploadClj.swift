@@ -8,6 +8,11 @@
 
 import Foundation
 class uploadClj{
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+        print("==totalBytesSent\(totalBytesSent)==")
+    }
+    
     let boundary="-------cljasdfghboundary"
     
     private func formData(fileData:NSData,fieldName:String,fileName:String)->NSData{
@@ -33,8 +38,9 @@ class uploadClj{
         request.httpMethod="POST"
         request.setValue("multipart/form-data;boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         request.httpBody=self.formData(fileData: fileData, fieldName: fieldName, fileName: fileName) as Data
-
-        NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main, completionHandler: {(response,data,error)in
+        
+        let session=URLSession.shared
+        let uploadTask=session.dataTask(with: request, completionHandler: {(data,response,error)in
             if(!(error==nil)){
                 print(error!)
             }else{
@@ -42,11 +48,34 @@ class uploadClj{
                 print("==data: \(NSString(data:data!,encoding:String.Encoding.utf8.rawValue))==")
             }
         })
+        uploadTask.resume()
     }
+    
+    func post(urlStr:String){
+        let session=URLSession.shared
+        let url=URL(string:urlStr)
+        if url==nil{
+            print("==Invalid URL==")
+            return;
+        }
+        var request=URLRequest(url: url!)
+        request.httpMethod="POST"
+        request.setValue("multipart/form-data;boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        let uploadTask=session.dataTask(with: request, completionHandler: {(data,response,error)in
+            if(!(error==nil)){
+                print(error!)
+            }else{
+                print("==response: \(response)==")
+                print("==data: \(NSString(data:data!,encoding:String.Encoding.utf8.rawValue))==")
+            }
+        })
+        uploadTask.resume()
 
+    }
+    
     func test(filePath:String,urlStr:String){
         let fileData:NSData=NSData.dataWithContentsOfMappedFile(filePath) as! NSData
         
-        uploadFile(fileData: fileData, fieldName: "file1", fileName: "cljFileName.txt", urlStr: urlStr)
+        uploadFile(fileData: fileData, fieldName: "file1", fileName: "cljFileNamelarge.txt", urlStr: urlStr)
     }
 }

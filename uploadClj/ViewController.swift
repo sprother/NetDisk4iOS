@@ -8,22 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController,URLSessionDelegate {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("start")
         
-        fileUpdateTest(file1: "/Users/clj/Desktop/50m2.mp4", file2: "/Users/clj/Desktop/50m.mp4")
-        //swiftHTTPUpload()
+        //fileUpdateTest(file1: "/Users/clj/Desktop/50m2.mp4", file2: "/Users/clj/Desktop/50m.mp4")
+        swiftHTTPUpload()
         
         print("finish")
         
     }
     let myUpload=uploadClj()
     func swiftHTTPUpload(){
-         myUpload.test(filePath:"/Users/clj/Desktop/cljfile.txt",urlStr:"http://27.18.150.194:18080/ios/first?account=abc&password=123")
+        myUpload.post(urlStr: "http://27.18.151.17:18080/ios/RegisterServlet?username=Lilith&password=233")
+        myUpload.test(filePath:"/Users/clj/Desktop/cljfile.txt",urlStr:"http://27.18.151.17:18080/ios/LoginServlet?username=Lilith&password=233")
+        myUpload.post(urlStr:"http://27.18.151.17:18080/ios/ListFileServlet?checkcode=1501545977804")
+        //http://27.18.151.17:18080/ios/LoginServlet?username=Lilith&password=233
+        //http://27.18.151.17:18080/ios/UploadHandleServlet?checkcode=1498866481474
     }
 
     
