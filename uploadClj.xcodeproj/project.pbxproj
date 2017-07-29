@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		475A4CCF1F22E543007DBA06 /* UploadClj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475A4CCE1F22E543007DBA06 /* UploadClj.swift */; };
+		475C23C91F29DDE600FBF084 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475C23C81F29DDE600FBF084 /* RecordManager.swift */; };
+		476B84071F2B2B7C0025A462 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476B84061F2B2B7C0025A462 /* NetworkManager.swift */; };
 		47D7C52E1F1CA20600E837D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C52D1F1CA20600E837D8 /* AppDelegate.swift */; };
 		47D7C5301F1CA20600E837D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C52F1F1CA20600E837D8 /* ViewController.swift */; };
 		47D7C5331F1CA20600E837D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D7C5311F1CA20600E837D8 /* Main.storyboard */; };
@@ -16,6 +18,7 @@
 		47D7C5431F1CA20700E837D8 /* uploadCljTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C5421F1CA20700E837D8 /* uploadCljTests.swift */; };
 		47D7C54E1F1CA20700E837D8 /* uploadCljUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D7C54D1F1CA20700E837D8 /* uploadCljUITests.swift */; };
 		47F886BF1F1F043B00302FB8 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F886BE1F1F043B00302FB8 /* Photos.framework */; };
+		47FFE9681F2C32E700A482FF /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FFE9671F2C32E700A482FF /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		475A4CCE1F22E543007DBA06 /* UploadClj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadClj.swift; sourceTree = "<group>"; };
+		475C23C81F29DDE600FBF084 /* RecordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
+		476B84061F2B2B7C0025A462 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		47D7C52A1F1CA20600E837D8 /* uploadClj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uploadClj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D7C52D1F1CA20600E837D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47D7C52F1F1CA20600E837D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +56,7 @@
 		47D7C54D1F1CA20700E837D8 /* uploadCljUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadCljUITests.swift; sourceTree = "<group>"; };
 		47D7C54F1F1CA20700E837D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47F886BE1F1F043B00302FB8 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		47FFE9671F2C32E700A482FF /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,9 @@
 				47D7C5361F1CA20600E837D8 /* LaunchScreen.storyboard */,
 				47D7C5391F1CA20600E837D8 /* Info.plist */,
 				475A4CCE1F22E543007DBA06 /* UploadClj.swift */,
+				475C23C81F29DDE600FBF084 /* RecordManager.swift */,
+				476B84061F2B2B7C0025A462 /* NetworkManager.swift */,
+				47FFE9671F2C32E700A482FF /* PhotoViewController.swift */,
 			);
 			path = uploadClj;
 			sourceTree = "<group>";
@@ -275,9 +284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475C23C91F29DDE600FBF084 /* RecordManager.swift in Sources */,
 				475A4CCF1F22E543007DBA06 /* UploadClj.swift in Sources */,
+				476B84071F2B2B7C0025A462 /* NetworkManager.swift in Sources */,
 				47D7C5301F1CA20600E837D8 /* ViewController.swift in Sources */,
 				47D7C52E1F1CA20600E837D8 /* AppDelegate.swift in Sources */,
+				47FFE9681F2C32E700A482FF /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

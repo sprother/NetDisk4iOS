@@ -7,15 +7,11 @@
 //
 
 import Foundation
-class uploadClj{
-    
-    func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
-        print("==totalBytesSent\(totalBytesSent)==")
-    }
-    
+class UploadClj{
+
     let boundary="-------cljasdfghboundary"
-    
     private func formData(fileData:NSData,fieldName:String,fileName:String)->NSData{
+        //构造表单数据
         let dataM=NSMutableData()
         let strM=NSMutableString()
         strM.append("--\(boundary)\r\n")
@@ -28,11 +24,11 @@ class uploadClj{
         dataM.append(tail.data(using: String.Encoding.utf8)!)
         return dataM
     }
-    func uploadFile(fileData:NSData,fieldName:String,fileName:String,urlStr:String){
+    func uploadFile(fileData:NSData,fieldName:String,fileName:String,urlStr:String)->String{
         let url=URL(string:urlStr)
         if url==nil{
             print("==Invalid URL==")
-            return;
+            return "Invalid URL";
         }
         var request=URLRequest(url: url!)
         request.httpMethod="POST"
@@ -40,37 +36,44 @@ class uploadClj{
         request.httpBody=self.formData(fileData: fileData, fieldName: fieldName, fileName: fileName) as Data
         
         let session=URLSession.shared
+        var returnResult:String="==no return result=="
         let uploadTask=session.dataTask(with: request, completionHandler: {(data,response,error)in
             if(!(error==nil)){
                 print(error!)
             }else{
-                print("==response: \(response)==")
-                print("==data: \(NSString(data:data!,encoding:String.Encoding.utf8.rawValue))==")
+                //print("==response: \(response)==")
+                returnResult=NSString(data:data!,encoding:String.Encoding.utf8.rawValue) as! String
+                //print("==data: \(returnResult)==")
             }
         })
         uploadTask.resume()
+        return returnResult
     }
     
-    func post(urlStr:String){
+    func post(urlStr:String)->String{
+        //发送post请求，用于登陆，下线
         let session=URLSession.shared
         let url=URL(string:urlStr)
         if url==nil{
             print("==Invalid URL==")
-            return;
+            return "==Invalid URL==";
         }
         var request=URLRequest(url: url!)
         request.httpMethod="POST"
         request.setValue("multipart/form-data;boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        var returnStr="==no return form servlet=="
         let uploadTask=session.dataTask(with: request, completionHandler: {(data,response,error)in
             if(!(error==nil)){
                 print(error!)
             }else{
                 print("==response: \(response)==")
+                returnStr=NSString(data:data!,encoding:String.Encoding.utf8.rawValue) as! String
                 print("==data: \(NSString(data:data!,encoding:String.Encoding.utf8.rawValue))==")
             }
         })
         uploadTask.resume()
-
+        return returnStr
     }
     
     func test(filePath:String,urlStr:String){

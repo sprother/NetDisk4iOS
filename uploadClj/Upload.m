@@ -9,13 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CFNetwork/CFNetwork.h>
 #import "Upload.h"
-#import <Photos/Photos.h>
 @implementation Upload {
     enum{
         kSendBufferSize=32768//上传缓冲区大小
     };
     uint8_t _buffer[kSendBufferSize];
-    
 }
 -(void)photoTest{
     
@@ -34,7 +32,7 @@
     //do nothing
 }
 -(void)uploadWithURL:(NSString*)urlString filePath:(NSString*)filePathStr account:(NSString*)accountStr password:(NSString*)passwordStr{
-    NSLog(@"begin");
+    NSLog(@"==begin upload==");
     NSURL *url;//ftp address
     NSString *filePath;//file like picture
     NSString*account;
@@ -47,7 +45,7 @@
     password=passwordStr;
     
     //添加后缀
-    url = [NSMakeCollectable(CFURLCreateCopyAppendingPathComponent(NULL, (CFURLRef) url, (CFStringRef) [filePath lastPathComponent], false)) autorelease];
+    url = CFBridgingRelease(CFURLCreateCopyAppendingPathComponent(NULL, (CFURLRef)url, (CFStringRef)[filePath lastPathComponent], false));
     
     //读取文件，转化为输入流
     self.fileStream=[NSInputStream inputStreamWithFileAtPath:filePath];
@@ -57,11 +55,11 @@
     }
     //为url开启CFFTPStream输出流
     
-    ftpStream=CFWriteStreamCreateWithFTPURL(NULL, (CFURLRef)url);
+    ftpStream=CFWriteStreamCreateWithFTPURL(NULL, (__bridge CFURLRef)url);
     if(ftpStream==nil){
         NSLog(@"error ftpStream is nil");
     }
-    self.networkStream=(NSOutputStream*)ftpStream;
+    self.networkStream=CFBridgingRelease(ftpStream);
     if(self.networkStream==nil){
         NSLog(@"error networkStream is nil");
     }
@@ -80,7 +78,7 @@
     //NSLog(@"ftpStream==%@==",ftpStream);
     //NSLog(@"networkStream==%@==",self.networkStream);
     //NSLog(@"fileStream==%@==",self.fileStream);
-    CFRelease(ftpStream);
+    //CFRelease(ftpStream);
 }
 -(void)_stopSendWithStatus:(NSString*)statusString{
     if(self.networkStream!=nil){
@@ -106,7 +104,7 @@
         case NSStreamEventHasBytesAvailable:{
             NSLog(@"NSStreamEventHasBytesAvailable");
             assert(NO);//再上传时不会调用
-        }break;
+        }break;		
         case NSStreamEventHasSpaceAvailable:{
             NSLog(@"NSStreamEventHasSpaceAvailable");
             NSLog(@"bufferOffset is %zd",self.bufferOffset);
